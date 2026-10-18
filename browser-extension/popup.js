@@ -76,13 +76,18 @@ function scoreDescription(score) {
 // ── Markdown → HTML (minimal) ─────────────────────────────────────────────────
 
 function markdownToHtml(md) {
-  return md
-    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-    .replace(/^#{1,3}\s+(.+)$/gm, '<h3>$1</h3>')
-    .replace(/^- (.+)$/gm, '<li>$1</li>')
+  const escaped = md
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+  return escaped
+    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+    .replace(/(^|[^*])\*(?!\s)([^*\n]+?)\*(?!\*)/g, '$1<em>$2</em>')
+    .replace(/^#{1,6}\s+(.+)$/gm, '<h3>$1</h3>')
+    .replace(/^[ \t]*([-*+])[ \t]+(.+)$/gm, '<li>$2</li>')
     .replace(/(<li>.*<\/li>\n?)+/g, m => `<ul>${m}</ul>`)
-    .replace(/\n{2,}/g, '</p><p>')
-    .replace(/^(?!<[hup])/gm, '')
+    .replace(/^[ \t]*(-{3,}|\*{3,})[ \t]*$/gm, '<hr>')
+    .replace(/\n{2,}/g, '<br><br>')
     .replace(/\n/g, ' ')
     .trim();
 }
