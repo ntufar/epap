@@ -21,7 +21,7 @@ class AboutScreen extends StatelessWidget {
               content:
                   'Η εφαρμογή "ΕΠΑΠ" δημιουργήθηκε με στόχο την προστασία των πολιτών '
                   'από την προπαγάνδα και την παραπληροφόρηση. Χρησιμοποιώντας την τεχνητή '
-                  'νοημοσύνη Mistral AI, η εφαρμογή αναλύει ελληνικά άρθρα ειδήσεων και '
+                  'νοημοσύνη GLM (Zhipu AI), η εφαρμογή αναλύει ελληνικά άρθρα ειδήσεων και '
                   'εντοπίζει στοιχεία προπαγάνδας, προκατάληψης και χειραγώγησης.',
             ),
             const SizedBox(height: 12),
@@ -45,7 +45,7 @@ class AboutScreen extends StatelessWidget {
               icon: Icons.code,
               title: 'Τεχνολογίες',
               content:
-                  'Python 3.8+ • Mistral AI • Vercel Serverless • Flutter • '
+                  'Python 3.8+ • GLM (Zhipu AI) • Vercel Serverless • Flutter • '
                   'BeautifulSoup • Markdown • Mobile-First Design',
             ),
             const SizedBox(height: 12),

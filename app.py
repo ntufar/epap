@@ -7,13 +7,13 @@ from functools import wraps
 from flask import Flask, render_template, request, jsonify
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
-from mistralai import Mistral
 import requests
 from bs4 import BeautifulSoup
 from dotenv import load_dotenv
 
 # Load environment variables
 load_dotenv()
+load_dotenv(".env.local")
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -28,8 +28,32 @@ limiter = Limiter(
 )
 limiter.init_app(app)
 
-# Configure Mistral API
-mistral_client = Mistral(api_key=os.getenv('MISTRAL_API_KEY'))
+# Configure GLM API (Z.ai, OpenAI-compatible). glm-4.7-flash is the cheapest model (free tier);
+# override with GLM_MODEL or GLM_BASE_URL (for example https://open.bigmodel.cn/api/paas/v4).
+GLM_BASE_URL = os.getenv('GLM_BASE_URL', 'https://api.z.ai/api/paas/v4')
+GLM_MODEL = os.getenv('GLM_MODEL', 'glm-4.7-flash')
+
+def call_glm(messages):
+    """Send a chat request to the GLM API and return the reply text."""
+    response = requests.post(
+        f"{GLM_BASE_URL}/chat/completions",
+        headers={"Authorization": f"Bearer {os.getenv('GLM_API_KEY')}"},
+        json={
+            "model": GLM_MODEL,
+            "messages": messages,
+            "temperature": 0.7,
+            "thinking": {"type": "disabled"},
+        },
+        timeout=120,
+    )
+    response.raise_for_status()
+    choices = response.json().get("choices")
+    if not choices:
+        raise ValueError("Empty response from GLM API")
+    content = choices[0].get("message", {}).get("content")
+    if not content:
+        raise ValueError("Empty content in GLM API response")
+    return content
 
 # Simple in-memory cache for analysis results
 analysis_cache = {}
@@ -125,7 +149,7 @@ def extract_text_from_url(url):
         return f"Error extracting text: {str(e)}"
 
 def analyze_greek_news(text, source=""):
-    """Analyze Greek news text for propaganda indicators using Mistral with caching"""
+    """Analyze Greek news text for propaganda indicators using GLM with caching"""
     try:
         # Check cache first
         cache_key = get_cache_key(text, source)
@@ -181,7 +205,7 @@ def analyze_greek_news(text, source=""):
         Απαντήστε στα ελληνικά με σαφή, κατανοητό και δομημένο τρόπο.
         """
 
-        logger.info("Sending request to Mistral API")
+        logger.info("Sending request to GLM API")
         messages = [
             {
                 "role": "user",
@@ -189,21 +213,7 @@ def analyze_greek_news(text, source=""):
             }
         ]
         
-        response = mistral_client.chat.complete(
-            # mistral-large-latest needs a paid tier (403 tier_not_allowed on trial/free keys);
-            # override with MISTRAL_MODEL when the key allows a larger model.
-            model=os.getenv('MISTRAL_MODEL', 'mistral-small-latest'),
-            messages=messages,
-            temperature=0.7
-        )
-        
-        if not response or not response.choices or len(response.choices) == 0:
-            raise ValueError("Empty response from Mistral API")
-        
-        analysis_text = response.choices[0].message.content
-        
-        if not analysis_text:
-            raise ValueError("Empty content in Mistral API response")
+        analysis_text = call_glm(messages)
         
         # Cache the result
         analysis_cache[cache_key] = analysis_text

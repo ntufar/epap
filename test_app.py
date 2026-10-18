@@ -44,22 +44,16 @@ def test_analyze_route_invalid_url(client):
     data = response.get_json()
     assert 'error' in data
 
-@patch('app.mistral_client.chat.complete')
+@patch('app.call_glm')
 def test_analyze_greek_news_success(mock_complete):
     """Test successful Greek news analysis."""
-    mock_message = MagicMock()
-    mock_message.content = "Test analysis result"
-    mock_choice = MagicMock()
-    mock_choice.message = mock_message
-    mock_response = MagicMock()
-    mock_response.choices = [mock_choice]
-    mock_complete.return_value = mock_response
+    mock_complete.return_value = "Test analysis result"
     
     result = analyze_greek_news("Test Greek text for analysis", "Test Source")
     assert result == "Test analysis result"
     mock_complete.assert_called_once()
 
-@patch('app.mistral_client.chat.complete')
+@patch('app.call_glm')
 def test_analyze_greek_news_error(mock_complete):
     """Test Greek news analysis with error."""
     mock_complete.side_effect = Exception("API Error")
@@ -89,14 +83,8 @@ def test_extract_text_from_url_error(mock_get):
 
 def test_analyze_route_success(client):
     """Test successful analysis via API."""
-    with patch('app.mistral_client.chat.complete') as mock_complete:
-        mock_message = MagicMock()
-        mock_message.content = "Test analysis result"
-        mock_choice = MagicMock()
-        mock_choice.message = mock_message
-        mock_response = MagicMock()
-        mock_response.choices = [mock_choice]
-        mock_complete.return_value = mock_response
+    with patch('app.call_glm') as mock_complete:
+        mock_complete.return_value = "Test analysis result"
         
         response = client.post('/analyze', json={
             'text': 'This is a longer Greek text that should be sufficient for analysis purposes and testing.',

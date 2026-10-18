@@ -3,11 +3,34 @@ import json
 import os
 import re
 import hashlib
-from mistralai import Mistral
 import requests
 from bs4 import BeautifulSoup
-# Configure Mistral AI
-mistral_client = Mistral(api_key=os.getenv('MISTRAL_API_KEY'))
+# Configure GLM API (Z.ai, OpenAI-compatible). glm-4.7-flash is the cheapest model (free tier);
+# override with GLM_MODEL or GLM_BASE_URL (for example https://open.bigmodel.cn/api/paas/v4).
+GLM_BASE_URL = os.getenv('GLM_BASE_URL', 'https://api.z.ai/api/paas/v4')
+GLM_MODEL = os.getenv('GLM_MODEL', 'glm-4.7-flash')
+
+def call_glm(messages):
+    """Send a chat request to the GLM API and return the reply text."""
+    response = requests.post(
+        f"{GLM_BASE_URL}/chat/completions",
+        headers={"Authorization": f"Bearer {os.getenv('GLM_API_KEY')}"},
+        json={
+            "model": GLM_MODEL,
+            "messages": messages,
+            "temperature": 0.7,
+            "thinking": {"type": "disabled"},
+        },
+        timeout=120,
+    )
+    response.raise_for_status()
+    choices = response.json().get("choices")
+    if not choices:
+        raise ValueError("Empty response from GLM API")
+    content = choices[0].get("message", {}).get("content")
+    if not content:
+        raise ValueError("Empty content in GLM API response")
+    return content
 
 # Simple in-memory cache for analysis results
 analysis_cache = {}
@@ -89,7 +112,7 @@ def extract_text_from_url(url):
         return f"Error extracting text: {str(e)}"
 
 def analyze_greek_news(text, source=""):
-    """Analyze Greek news text for propaganda indicators using Mistral"""
+    """Analyze Greek news text for propaganda indicators using GLM"""
     try:
         # Check cache first
         cache_key = get_cache_key(text, source)
@@ -150,21 +173,7 @@ def analyze_greek_news(text, source=""):
             }
         ]
         
-        response = mistral_client.chat.complete(
-            # mistral-large-latest needs a paid tier (403 tier_not_allowed on trial/free keys);
-            # override with MISTRAL_MODEL when the key allows a larger model.
-            model=os.getenv('MISTRAL_MODEL', 'mistral-small-latest'),
-            messages=messages,
-            temperature=0.7
-        )
-        
-        if not response or not response.choices or len(response.choices) == 0:
-            raise ValueError("Empty response from Mistral API")
-        
-        analysis_text = response.choices[0].message.content
-        
-        if not analysis_text:
-            raise ValueError("Empty content in Mistral API response")
+        analysis_text = call_glm(messages)
 
         # Cache the result (keep as markdown for mobile app)
         analysis_cache[cache_key] = analysis_text
@@ -1307,7 +1316,7 @@ class handler(BaseHTTPRequestHandler):
                     <h3>2.3 Δεδομένα Τρίτων</h3>
                     <ul>
                         <li><strong>Google AdSense:</strong> Χρησιμοποιούμε το Google AdSense για την προβολή διαφημίσεων.</li>
-                        <li><strong>Mistral AI:</strong> Τα κείμενα που υποβάλλετε αποστέλλονται στο Mistral AI API για επεξεργασία.</li>
+                        <li><strong>Zhipu AI (GLM):</strong> Τα κείμενα που υποβάλλετε αποστέλλονται στο GLM API για επεξεργασία.</li>
                     </ul>
 
                     <h2>3. Πώς Χρησιμοποιούμε τα Δεδομένα σας</h2>
@@ -1683,7 +1692,7 @@ class handler(BaseHTTPRequestHandler):
                     self.wfile.write(json.dumps(error_response).encode())
                     return
 
-                # Perform analysis using Mistral AI
+                # Perform analysis using GLM
                 analysis = analyze_greek_news(text, source)
 
                 response = {
