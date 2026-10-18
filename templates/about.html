@@ -2,25 +2,22 @@
 <html lang="el">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Σχετικά - ΕΠΑΠ</title>
-    
-    <!-- PWA Meta Tags -->
+
     <meta name="description" content="Σχετικά με την πλατφόρμα ανάλυσης παραπληροφόρισης">
     <meta name="keywords" content="ανάλυση ειδήσεων, ελληνικές ειδήσεις, προπαγάνδα, ανίχνευση προπαγάνδας, ανάλυση προκατάληψης, ελληνική ενημέρωση, αξιοπιστία ειδήσεων, fake news, παραπληροφόρηση, ανάλυση μέσων ενημέρωσης">
-    <meta name="theme-color" content="#1e3c72">
+    <meta name="theme-color" content="#103b2a">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="apple-mobile-web-app-title" content="ΕΠΑΠ">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="ΕΠΑΠ">
-    
-    <!-- SEO Meta Tags -->
+
     <meta name="author" content="Nicolai Tufar">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://epap.vercel.app/about">
-    
-    <!-- Open Graph -->
+
     <meta property="og:title" content="Σχετικά - ΕΠΑΠ Ελληνική Πλατφόρμα Ανάλυσης Παραπληροφόρισης">
     <meta property="og:description" content="Σχετικά με την πλατφόρμα ανάλυσης παραπληροφόρισης - Τεχνητή νοημοσύνη για εντοπισμό προπαγάνδας σε ελληνικές ειδήσεις">
     <meta property="og:url" content="https://epap.vercel.app/about">
@@ -30,14 +27,12 @@
     <meta property="og:image:height" content="512">
     <meta property="og:locale" content="el_GR">
     <meta property="og:site_name" content="ΕΠΑΠ">
-    
-    <!-- Twitter Card -->
+
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Σχετικά - ΕΠΑΠ Ελληνική Πλατφόρμα Ανάλυσης Παραπληροφόρισης">
     <meta name="twitter:description" content="Σχετικά με την πλατφόρμα ανάλυσης παραπληροφόρισης - Τεχνητή νοημοσύνη για εντοπισμό προπαγάνδας σε ελληνικές ειδήσεις">
     <meta name="twitter:image" content="https://epap.vercel.app/static/icons/icon-512x512.png">
-    
-    <!-- JSON-LD Structured Data -->
+
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -53,205 +48,177 @@
         }
     }
     </script>
-    
-    <!-- PWA Manifest -->
+
     <link rel="manifest" href="/static/manifest.json">
-    
-    <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9549967181261078" crossorigin="anonymous"></script>
-    
-    <!-- Icons for different platforms -->
+
     <link rel="icon" type="image/png" sizes="32x32" href="/static/icons/icon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/static/icons/icon-16x16.png">
     <link rel="apple-touch-icon" href="/static/icons/icon-192x192.png">
-    
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Noto+Serif:wght@600;700;800&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    
+
     <style>
+        :root {
+            --paper: #e9ebe2; --card: #fff; --ink: #17211d; --muted: #5b6a61;
+            --line: #dbe1d6; --pine: #1d5c3f; --pine-deep: #103b2a;
+            --pine-tint: #e6efe7; --sand: #f3efe3;
+            --shadow: 0 1px 2px rgba(16, 59, 42, 0.08), 0 12px 32px rgba(16, 59, 42, 0.10);
+            --font-body: 'Noto Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+            --font-display: 'Noto Serif', Georgia, serif;
+        }
+        html { scroll-behavior: smooth; }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-            max-width: 860px;
-            margin: 0 auto;
-            padding: 10px;
-            background: linear-gradient(135deg, #e8edf5 0%, #d5dce8 100%);
-            min-height: 100vh;
-            -webkit-font-smoothing: antialiased;
+            font-family: var(--font-body); color: var(--ink);
+            max-width: 960px; margin: 0 auto; padding: 20px;
+            background: radial-gradient(900px 420px at 15% -8%, #f5f6f0 0%, rgba(245,246,240,0) 60%), var(--paper);
+            min-height: 100dvh; -webkit-font-smoothing: antialiased;
         }
-        .container {
-            background: #fff;
-            padding: 24px;
-            border-radius: 12px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.06);
+        .skip-link { position: absolute; left: 12px; top: -48px; z-index: 50; background: var(--pine-deep); color: #fff; padding: 8px 14px; border-radius: 8px; }
+        .skip-link:focus { top: 12px; color: #fff; }
+        :focus-visible { outline: 3px solid rgba(29, 92, 63, 0.5); outline-offset: 2px; }
+        .sheet { background: var(--card); border-radius: 20px; box-shadow: var(--shadow); overflow: hidden; }
+        .mast {
+            background: var(--pine-deep); color: #f2f5ef;
+            padding: 22px 28px;
+            display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
         }
-        .header {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-            color: white;
-            padding: 16px 20px;
-            border-radius: 10px;
-            text-align: center;
-            margin-bottom: 24px;
+        .mast .title { display: flex; align-items: center; gap: 12px; }
+        .brand-mark {
+            display: inline-flex; align-items: center; justify-content: center;
+            width: 44px; height: 44px; border-radius: 13px; background: #f2f5ef;
+            font-family: var(--font-display); font-size: 1.5rem; font-weight: 800; color: var(--pine-deep);
         }
-    .header h1 { margin: 0; font-size: 1.4rem; }
-    .header p { margin: 4px 0 0; font-size: 0.9rem; opacity: 0.85; }
-    .logo-alpha {
-        display: inline-flex; align-items: center; justify-content: center;
-        width: 40px; height: 40px; border-radius: 10px;
-        background: linear-gradient(135deg, #1e3c72, #2563eb);
-        font-family: Georgia, 'Times New Roman', serif;
-        font-size: 1.5rem; font-weight: 900; color: #fff;
-        vertical-align: middle; margin-right: 10px;
-    }
-    .logo-alpha .check { color: #22c55e; font-size: 0.7rem; margin-left: 1px; }
-        .content { line-height: 1.7; color: #333; font-size: 0.95rem; }
+        .brand-mark .check { color: var(--pine); font-size: 0.75rem; margin-left: 1px; }
+        .mast h1 { margin: 0; font-family: var(--font-display); font-size: 1.5rem; letter-spacing: -0.01em; }
+        .mast p { margin: 2px 0 0; font-size: 0.85rem; color: #c9d4c9; }
+        .site-nav { display: flex; gap: 6px; }
+        .site-nav a { color: #e7ede6; text-decoration: none; font-size: 0.85rem; font-weight: 600; padding: 8px 14px; border-radius: 999px; transition: background 0.22s; }
+        .site-nav a:hover { background: rgba(255,255,255,0.14); color: #fff; }
+        .site-nav a[aria-current="page"] { background: rgba(255,255,255,0.18); color: #fff; }
+        .content { padding: 28px; line-height: 1.7; font-size: 0.95rem; }
         .content h2 {
-            color: #1e3c72;
-            margin-top: 1.5rem;
-            margin-bottom: 0.75rem;
-            font-size: 1.2rem;
-            border-bottom: 1px solid #e9ecef;
-            padding-bottom: 0.35rem;
+            font-family: var(--font-display); color: var(--pine-deep);
+            font-size: 1.25rem; margin: 1.75rem 0 0.6rem;
+            border-bottom: 1px solid var(--line); padding-bottom: 0.35rem;
         }
-        .content p { margin-bottom: 0.85rem; }
-        .author-card {
-            background: #f8f9fa;
-            border: 1px solid #dee2e6;
-            border-radius: 10px;
-            padding: 20px;
-            margin: 1.5rem 0;
-            text-align: center;
-        }
-        .author-avatar {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-            margin: 0 auto 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            color: white;
-            font-weight: bold;
-        }
-        .author-name { font-size: 1.15rem; font-weight: 600; color: #1e3c72; margin-bottom: 4px; }
-        .author-title { color: #6c757d; margin-bottom: 12px; font-style: italic; font-size: 0.9rem; }
-        .author-card p { font-size: 0.9rem; color: #495057; }
-        .github-link {
-            display: inline-block;
-            background: #24292e;
-            color: white;
-            padding: 8px 18px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.9rem;
-            transition: all 0.2s;
-            margin: 4px;
-        }
-        .github-link:hover { background: #0366d6; }
-        .back-button {
-            display: inline-block;
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-            color: white;
-            padding: 10px 22px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: all 0.2s;
-            margin-top: 16px;
-        }
-        .back-button:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
-        .feature-list { list-style: none; padding: 0; }
-        .feature-list li {
-            background: #f8f9fa;
-            margin: 6px 0;
-            padding: 10px 16px;
-            border-radius: 8px;
-            border-left: 3px solid #2a5298;
-            font-size: 0.9rem;
-        }
+        .content h2:first-child { margin-top: 0; }
+        .content p { margin-bottom: 0.85rem; max-width: 68ch; }
+        .feature-list { list-style: none; padding: 0; margin: 0.75rem 0; display: grid; gap: 8px; }
+        .feature-list li { background: var(--pine-tint); padding: 10px 16px; border-radius: 12px; font-size: 0.9rem; }
         .tech-stack { display: flex; flex-wrap: wrap; gap: 8px; margin: 0.75rem 0; }
-        .tech-badge {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-            color: white;
-            padding: 4px 12px;
-            border-radius: 6px;
-            font-size: 0.8rem;
-            font-weight: 500;
+        .tech-badge { background: var(--pine-deep); color: #fff; padding: 5px 13px; border-radius: 999px; font-size: 0.8rem; font-weight: 600; }
+        .author-card { background: var(--paper); border-radius: 16px; padding: 22px; margin: 1.5rem 0; text-align: left; display: grid; grid-template-columns: 60px 1fr; gap: 16px; align-items: start; }
+        .author-avatar { width: 60px; height: 60px; border-radius: 18px; background: var(--pine-deep); display: flex; align-items: center; justify-content: center; font-size: 1.3rem; color: #fff; font-weight: 700; }
+        .author-name { font-size: 1.1rem; font-weight: 700; color: var(--pine-deep); }
+        .author-title { color: var(--muted); font-size: 0.87rem; margin-bottom: 6px; }
+        .author-card p { font-size: 0.9rem; color: #3d4a43; margin-bottom: 10px; }
+        .profile-link { display: inline-block; background: #24292e; color: #fff; padding: 8px 18px; border-radius: 999px; text-decoration: none; font-weight: 600; font-size: 0.87rem; transition: background 0.22s, transform 0.12s; }
+        .profile-link:hover { background: #0366d6; color: #fff; }
+        .profile-link:active { transform: scale(0.98); }
+        .profile-link.fb { background: #1877f2; }
+        .profile-link.fb:hover { background: #0f5fd0; color: #fff; }
+        .origin { background: var(--sand); border-radius: 16px; padding: 18px 22px; margin: 20px 0; }
+        .origin h3 { color: var(--pine-deep); font-size: 1rem; margin: 0 0 8px; }
+        .origin p { font-size: 0.9rem; color: #4c4433; margin-bottom: 8px; }
+        .back-row { text-align: left; margin-top: 1.75rem; }
+        .back-button { display: inline-block; background: var(--pine); color: #fff; padding: 11px 24px; border-radius: 12px; text-decoration: none; font-weight: 600; font-size: 0.93rem; transition: background 0.22s, transform 0.12s, box-shadow 0.22s; }
+        .back-button:hover { background: #175539; color: #fff; transform: translateY(-1px); box-shadow: 0 8px 20px rgba(16,59,42,0.25); }
+        .back-button:active { transform: scale(0.98); }
+        .legal { text-align: center; margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--line); font-size: 0.82rem; color: var(--muted); }
+        .legal a { color: var(--muted); text-decoration: none; }
+        .legal a:hover { color: var(--pine-deep); text-decoration: underline; }
+        @media (max-width: 640px) {
+            body { padding: 10px; }
+            .content { padding: 20px 18px; }
+            .author-card { grid-template-columns: 1fr; }
         }
-        @media (max-width: 768px) {
-            body { padding: 6px; }
-            .container { padding: 16px; border-radius: 10px; margin: 4px; }
-            .header { padding: 12px; border-radius: 8px; margin-bottom: 16px; }
-            .header h1 { font-size: 1.2rem; }
-            .author-card { padding: 16px; margin: 1rem 0; }
-            .tech-stack { justify-content: center; }
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            *, *::before, *::after { animation: none !important; transition: none !important; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1><span class="logo-alpha">Α<span class="check">✓</span></span>Σχετικά με την Εφαρμογή</h1>
-            <p>ΕΠΑΠ - Εληνική Πλατφόρμα Ανάλυσης Παραπληροφόρισης</p>
-        </div>
-        
-        <div class="content">
-            <h2><i class="fas fa-bullseye me-2"></i>Σκοπός της Εφαρμογής</h2>
-            <p>Η εφαρμογή "ΕΠΑΠ" δημιουργήθηκε με στόχο την προστασία των πολιτών από την προπαγάνδα και την παραπληροφόρηση. Χρησιμοποιώντας την τεχνητή νοημοσύνη Google Gemini, η εφαρμογή αναλύει ελληνικά άρθρα ειδήσεων και εντοπίζει στοιχεία προπαγάνδας, προκατάληψης και χειραγώγησης.</p>
-            
-            <h2><i class="fas fa-search me-2"></i>Χαρακτηριστικά Ανάλυσης</h2>
+    <a class="skip-link" href="#main">Μετάβαση στο περιεχόμενο</a>
+    <div class="sheet">
+        <header class="mast">
+            <div class="title">
+                <span class="brand-mark" aria-hidden="true">Ε<span class="check">✓</span></span>
+                <div>
+                    <h1>Σχετικά με την εφαρμογή</h1>
+                    <p>ΕΠΑΠ - Εληνική Πλατφόρμα Ανάλυσης Παραπληροφόρισης</p>
+                </div>
+            </div>
+            <nav class="site-nav" aria-label="Κύρια πλοήγηση">
+                <a href="/">Αρχική</a>
+                <a href="/about" aria-current="page">Σχετικά</a>
+                <a href="/privacy">Απόρρητο</a>
+            </nav>
+        </header>
+
+        <main class="content" id="main">
+            <h2><i class="fas fa-bullseye me-2" aria-hidden="true"></i>Σκοπός της εφαρμογής</h2>
+            <p>Η εφαρμογή «ΕΠΑΠ» δημιουργήθηκε με στόχο την προστασία των πολιτών από την προπαγάνδα και την παραπληροφόρηση. Χρησιμοποιώντας τεχνητή νοημοσύνη, αναλύει ελληνικά άρθρα ειδήσεων και εντοπίζει στοιχεία προπαγάνδας, προκατάληψης και χειραγώγησης.</p>
+
+            <h2><i class="fas fa-search me-2" aria-hidden="true"></i>Χαρακτηριστικά ανάλυσης</h2>
             <ul class="feature-list">
-                <li><strong>Εντοπισμός Συναισθηματικής Χειραγώγησης:</strong> Αναγνώριση φορτωμένων όρων και συναισθηματικών τριγέρων</li>
-                <li><strong>Αξιολόγηση Προκατάληψης:</strong> Εντοπισμός πολιτικών και ιδεολογικών κλίσεων</li>
-                <li><strong>Ανάλυση Γεγονός vs Άποψη:</strong> Ισορροπία μεταξύ πραγματικών γεγονότων και σχολιασμού</li>
-                <li><strong>Αξιοπιστία Πηγής:</strong> Αξιολόγηση της αξιοπιστίας της πηγής ειδήσεων</li>
-                <li><strong>Τεχνικές Προπαγάνδας:</strong> Εντοπισμός τεχνικών προπαγάνδας και λογικών σφαλμάτων</li>
-                <li><strong>Σύστημα Βαθμολόγησης:</strong> Βαθμολόγηση 1-100 για την αξιοπιστία των ειδήσεων</li>
+                <li><strong>Εντοπισμός συναισθηματικής χειραγώγησης:</strong> αναγνώριση φορτωμένων όρων και συναισθηματικών τριγέρων</li>
+                <li><strong>Αξιολόγηση προκατάληψης:</strong> εντοπισμός πολιτικών και ιδεολογικών κλίσεων</li>
+                <li><strong>Ανάλυση γεγονός vs άποψη:</strong> ισορροπία μεταξύ πραγματικών γεγονότων και σχολιασμού</li>
+                <li><strong>Αξιοπιστία πηγής:</strong> αξιολόγηση της αξιοπιστίας της πηγής ειδήσεων</li>
+                <li><strong>Τεχνικές προπαγάνδας:</strong> εντοπισμός τεχνικών προπαγάνδας και λογικών σφαλμάτων</li>
+                <li><strong>Σύστημα βαθμολόγησης:</strong> βαθμολόγηση 1–100 για την αξιοπιστία των ειδήσεων</li>
             </ul>
-            
-            <h2><i class="fas fa-code me-2"></i>Τεχνολογίες</h2>
+
+            <h2><i class="fas fa-code me-2" aria-hidden="true"></i>Τεχνολογίες</h2>
             <div class="tech-stack">
                 <span class="tech-badge">Python 3.8+</span>
-                <span class="tech-badge">Google Gemini AI</span>
+                <span class="tech-badge">Mistral AI</span>
                 <span class="tech-badge">Flask</span>
-                <span class="tech-badge">PWA (Progressive Web App)</span>
+                <span class="tech-badge">PWA</span>
                 <span class="tech-badge">BeautifulSoup</span>
                 <span class="tech-badge">Markdown</span>
-                <span class="tech-badge">Mobile-First Design</span>
+                <span class="tech-badge">Mobile-first σχεδίαση</span>
             </div>
-            
-            <h2><i class="fas fa-mobile-alt me-2"></i>Mobile & PWA Features</h2>
+
+            <h2><i class="fas fa-mobile-alt me-2" aria-hidden="true"></i>Mobile και PWA λειτουργίες</h2>
             <p>Η εφαρμογή είναι σχεδιασμένη mobile-first και υποστηρίζει:</p>
             <ul class="feature-list">
-                <li><strong>Εγκατάσταση σε Mobile:</strong> Προσθήκη στην αρχική οθόνη του κινητού</li>
-                <li><strong>Share Target:</strong> Λήψη και ανάλυση συνδέσμων που μοιράζονται από άλλες εφαρμογές</li>
-                <li><strong>Offline Support:</strong> Λειτουργία offline με service worker</li>
-                <li><strong>Responsive Design:</strong> Βέλτιστη εμπειρία σε όλες τις συσκευές</li>
+                <li><strong>Εγκατάσταση σε mobile:</strong> προσθήκη στην αρχική οθόνη του κινητού</li>
+                <li><strong>Share target:</strong> λήψη και ανάλυση συνδέσμων που μοιράζονται από άλλες εφαρμογές</li>
+                <li><strong>Offline υποστήριξη:</strong> λειτουργία offline με service worker</li>
+                <li><strong>Responsive σχεδίαση:</strong> βέλτιστη εμπειρία σε όλες τις συσκευές</li>
             </ul>
-            
+
             <div class="author-card">
-                <div class="author-avatar">NT</div>
-                <div class="author-name">Nicolai Tufar</div>
-                <div class="author-title">Developer & Creator</div>
-                <p>Αυτή η εφαρμογή δημιουργήθηκε με αγάπη για την ελληνική κοινότητα και την προστασία της από την παραπληροφόρηση. Στόχος είναι η παροχή ενός εργαλείου που θα βοηθήσει τους πολίτες να κάνουν πιο ενημερωμένες επιλογές.</p>
-                <a href="https://github.com/ntufar" target="_blank" class="github-link">
-                    <i class="fab fa-github me-1"></i>GitHub Profile
-                </a>
+                <div class="author-avatar" aria-hidden="true">NT</div>
+                <div>
+                    <div class="author-name">Nicolai Tufar</div>
+                    <div class="author-title">Developer και δημιουργός</div>
+                    <p>Αυτή η εφαρμογή δημιουργήθηκε με αγάπη για την ελληνική κοινότητα και την προστασία της από την παραπληροφόρηση. Στόχος είναι η παροχή ενός εργαλείου που θα βοηθήσει τους πολίτες να κάνουν πιο ενημερωμένες επιλογές.</p>
+                    <a href="https://github.com/ntufar" target="_blank" rel="noopener" class="profile-link">
+                        <i class="fab fa-github me-1" aria-hidden="true"></i>GitHub Profile
+                    </a>
+                </div>
             </div>
-            
-            <div class="author-card" style="background: #e8f4fd; border-color: #bee5eb;">
-                <div class="author-avatar" style="background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);">NT</div>
-                <div class="author-name">Νίκος Τσολοζίδης</div>
-                <div class="author-title">Ιδέα & Έμπνευση</div>
-                <p>Η ιδέα για αυτή την εφαρμογή ανήκει στον Νίκο Τσολοζίδη, ο οποίος πρότεινε την ανάπτυξη ενός εργαλείου ανάλυσης ελληνικών ειδήσεων.</p>
-                <a href="https://www.facebook.com/tsolozidis.nick" target="_blank" class="github-link" style="background: #1877f2;">
-                    <i class="fab fa-facebook me-1"></i>Facebook Profile
-                </a>
+
+            <div class="author-card">
+                <div class="author-avatar" aria-hidden="true">ΝΤ</div>
+                <div>
+                    <div class="author-name">Νίκος Τσολοζίδης</div>
+                    <div class="author-title">Ιδέα και έμπνευση</div>
+                    <p>Η ιδέα για αυτή την εφαρμογή ανήκει στον Νίκο Τσολοζίδη, ο οποίος πρότεινε την ανάπτυξη ενός εργαλείου ανάλυσης ελληνικών ειδήσεων.</p>
+                    <a href="https://www.facebook.com/tsolozidis.nick" target="_blank" rel="noopener" class="profile-link fb">
+                        <i class="fab fa-facebook me-1" aria-hidden="true"></i>Facebook Profile
+                    </a>
+                </div>
             </div>
-            
-            <h2><i class="fas fa-hands-helping me-2"></i>Συνεισφορά</h2>
+
+            <h2><i class="fas fa-hands-helping me-2" aria-hidden="true"></i>Συνεισφορά</h2>
             <p>Αν θέλετε να συμβάλετε στην ανάπτυξη της εφαρμογής, μπορείτε να:</p>
             <ul class="feature-list">
                 <li>Αναφέρετε bugs ή προτάσεις βελτίωσης</li>
@@ -259,19 +226,14 @@
                 <li>Μοιραστείτε την εφαρμογή με φίλους και οικογένεια</li>
                 <li>Προτείνετε νέες λειτουργίες ανάλυσης</li>
             </ul>
-            
-            <div class="info-card" style="background: #e8f0fe; border-left: 4px solid #2196f3; padding: 16px 20px; margin: 20px 0; border-radius: 10px;">
-                <h3 style="color: #1565c0; font-size: 1rem; margin-bottom: 0.5rem;"><i class="fas fa-star me-1"></i>Από πού Ξεκίνησε η Ιδέα</h3>
-                <p style="font-size: 0.9rem; line-height: 1.6; color: #424242; margin-bottom: 0.5rem;">
-                    Σε μια εποχή όπου η παραπληροφόρηση διαδίδεται γρήγορα, η ανάγκη για εργαλεία κριτικής αξιολόγησης είναι πιο σημαντική από ποτέ.
-                </p>
-                <p style="font-size: 0.9rem; line-height: 1.6; color: #424242; margin-bottom: 0;">
-                    Χρησιμοποιώντας την τεχνητή νοημοσύνη, παρέχουμε αντικειμενική ανάλυση που βοηθά τους χρήστες να κάνουν πιο ενημερωμένες αποφάσεις.
-                </p>
+
+            <div class="origin">
+                <h3><i class="fas fa-star me-1" aria-hidden="true"></i>Από πού ξεκίνησε η ιδέα</h3>
+                <p>Σε μια εποχή όπου η παραπληροφόρηση διαδίδεται γρήγορα, η ανάγκη για εργαλεία κριτικής αξιολόγησης είναι πιο σημαντική από ποτέ.</p>
+                <p style="margin-bottom: 0;">Χρησιμοποιώντας την τεχνητή νοημοσύνη, παρέχουμε αντικειμενική ανάλυση που βοηθά τους χρήστες να κάνουν πιο ενημερωμένες αποφάσεις.</p>
             </div>
-            
-            <!-- Ad Unit on About Page - Positioned after substantial content -->
-            <div style="text-align: center; margin: 30px 0;" id="aboutAdContainer">
+
+            <div style="text-align: center; margin: 24px 0;" id="aboutAdContainer">
                 <ins class="adsbygoogle"
                      style="display:block"
                      data-ad-client="ca-pub-9549967181261078"
@@ -282,17 +244,17 @@
                      (adsbygoogle = window.adsbygoogle || []).push({});
                 </script>
             </div>
-            
-            <h2><i class="fas fa-file-alt me-2"></i>Άδεια Χρήσης</h2>
+
+            <h2><i class="fas fa-file-alt me-2" aria-hidden="true"></i>Άδεια χρήσης</h2>
             <p>Αυτό το έργο είναι διαθέσιμο υπό την άδεια MIT. Μπορείτε να το χρησιμοποιήσετε, να το τροποποιήσετε και να το διανείμετε ελεύθερα.</p>
-            
-            <div style="text-align: center; margin-top: 2rem;">
-                <a href="/" class="back-button"><i class="fas fa-arrow-left me-1"></i>Επιστροφή στην Αρχική</a>
+
+            <div class="back-row">
+                <a href="/" class="back-button"><i class="fas fa-arrow-left me-1" aria-hidden="true"></i>Επιστροφή στην αρχική</a>
             </div>
-            <div class="text-center mt-4" style="padding-top: 1rem; border-top: 1px solid #e9ecef; font-size: 0.8rem; color: #6c757d;">
-                <a href="/privacy" style="color: #6c757d; text-decoration: none;">Πολιτική Απορρήτου</a>
+            <div class="legal">
+                <a href="/privacy">Πολιτική απορρήτου</a>
             </div>
-        </div>
+        </main>
     </div>
 </body>
 </html>

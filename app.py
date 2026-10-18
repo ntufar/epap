@@ -190,7 +190,9 @@ def analyze_greek_news(text, source=""):
         ]
         
         response = mistral_client.chat.complete(
-            model="mistral-large-latest",  # Using Mistral's latest large model
+            # mistral-large-latest needs a paid tier (403 tier_not_allowed on trial/free keys);
+            # override with MISTRAL_MODEL when the key allows a larger model.
+            model=os.getenv('MISTRAL_MODEL', 'mistral-small-latest'),
             messages=messages,
             temperature=0.7
         )

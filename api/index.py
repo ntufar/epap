@@ -12,6 +12,26 @@ mistral_client = Mistral(api_key=os.getenv('MISTRAL_API_KEY'))
 # Simple in-memory cache for analysis results
 analysis_cache = {}
 
+def _template_dirs():
+    here = os.path.dirname(os.path.abspath(__file__))
+    return [
+        os.path.join(here, 'templates'),
+        os.path.join(here, '..', 'templates'),
+        'templates',
+    ]
+
+def _load_template_file(name):
+    """Load a redesigned template from disk when available, else None."""
+    for d in _template_dirs():
+        try:
+            path = os.path.join(d, name)
+            if os.path.exists(path):
+                with open(path, 'r', encoding='utf-8') as f:
+                    return f.read()
+        except Exception:
+            continue
+    return None
+
 def get_cache_key(text, source=""):
     """Generate a cache key for the analysis"""
     content = f"{text[:1000]}_{source}".encode('utf-8')
@@ -131,7 +151,9 @@ def analyze_greek_news(text, source=""):
         ]
         
         response = mistral_client.chat.complete(
-            model="mistral-large-latest",
+            # mistral-large-latest needs a paid tier (403 tier_not_allowed on trial/free keys);
+            # override with MISTRAL_MODEL when the key allows a larger model.
+            model=os.getenv('MISTRAL_MODEL', 'mistral-small-latest'),
             messages=messages,
             temperature=0.7
         )
@@ -156,6 +178,12 @@ class handler(BaseHTTPRequestHandler):
         """Generate the main HTML page with optional URL parameters for sharing"""
         if url_params is None:
             url_params = {}
+        try:
+            content = _load_template_file('index.html')
+            if content:
+                return content
+        except Exception:
+            pass
             
         # Extract shared data from URL parameters
         shared_url = url_params.get('url', [None])[0] if url_params.get('url') else None
@@ -800,6 +828,12 @@ class handler(BaseHTTPRequestHandler):
     
     def get_about_html(self):
         """Generate the About page HTML"""
+        try:
+            content = _load_template_file('about.html')
+            if content:
+                return content
+        except Exception:
+            pass
         html = """
         <!DOCTYPE html>
         <html lang="el">
@@ -1095,6 +1129,12 @@ class handler(BaseHTTPRequestHandler):
 
     def get_privacy_html(self):
         """Generate the Privacy Policy page HTML"""
+        try:
+            content = _load_template_file('privacy.html')
+            if content:
+                return content
+        except Exception:
+            pass
         html = """
         <!DOCTYPE html>
         <html lang="el">

@@ -4,24 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ΕΠΑΠ - Εληνική Πλατφόρμα Ανάλυσης Παραπληροφόρισης</title>
-    
+
     <!-- PWA Meta Tags -->
     <meta name="description" content="Αναλύστε ελληνικά άρθρα ειδήσεων για στοιχεία προπαγάνδας και προκατάληψης">
     <meta name="keywords" content="ανάλυση ειδήσεων, ελληνικές ειδήσεις, προπαγάνδα, ανίχνευση προπαγάνδας, ανάλυση προκατάληψης, ελληνική ενημέρωση, αξιοπιστία ειδήσεων, fake news, παραπληροφόρηση, ανάλυση μέσων ενημέρωσης">
     <meta name="msvalidate.01" content="7AE8D16C48F5201D71FAF4F7A52231E1" />
-    <meta name="theme-color" content="#2563eb">
+    <meta name="theme-color" content="#103b2a">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="apple-mobile-web-app-title" content="ΕΠΑΠ">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="ΕΠΑΠ">
     <meta name="apple-touch-fullscreen" content="yes">
-    
+
     <!-- SEO Meta Tags -->
     <meta name="author" content="Nicolai Tufar">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <link rel="canonical" href="https://epap.vercel.app/">
-    
+
     <!-- Open Graph -->
     <meta property="og:title" content="ΕΠΑΠ - Ελληνική Πλατφόρμα Ανάλυσης Παραπληροφόρισης">
     <meta property="og:description" content="Αναλύστε ελληνικά άρθρα ειδήσεων για στοιχεία προπαγάνδας και προκατάληψης με τεχνητή νοημοσύνη">
@@ -32,19 +32,19 @@
     <meta property="og:image:height" content="512">
     <meta property="og:locale" content="el_GR">
     <meta property="og:site_name" content="ΕΠΑΠ">
-    
+
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="ΕΠΑΠ - Ελληνική Πλατφόρμα Ανάλυσης Παραπληροφόρισης">
     <meta name="twitter:description" content="Αναλύστε ελληνικά άρθρα ειδήσεων για στοιχεία προπαγάνδας και προκατάληψης με τεχνητή νοημοσύνη">
     <meta name="twitter:image" content="https://epap.vercel.app/static/icons/icon-512x512.png">
-    
+
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "WebApplication",
-        "name": "ΕΠΑΠ - Ελληνική Πλατφόρμα Ανάλυσης Παραπληροφόρισης",
+        "name": "ΕΠΑΠ - Ελληνική Πλατφόρμα Ανάλυσης Παραπληροφόρησης",
         "url": "https://epap.vercel.app/",
         "description": "Αναλύστε ελληνικά άρθρα ειδήσεων για στοιχεία προπαγάνδας και προκατάληψης με τεχνητή νοημοσύνη",
         "applicationCategory": "Multimedia",
@@ -57,350 +57,504 @@
         }
     }
     </script>
-    
+
     <!-- PWA Manifest -->
     <link rel="manifest" href="/static/manifest.json">
-    
+
     <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9549967181261078" crossorigin="anonymous"></script>
-    
+
     <!-- Icons for different platforms -->
     <link rel="icon" type="image/png" sizes="32x32" href="/static/icons/icon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/static/icons/icon-16x16.png">
     <link rel="apple-touch-icon" href="/static/icons/icon-192x192.png">
     <link rel="apple-touch-icon" sizes="152x152" href="/static/icons/icon-152x152.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/static/icons/icon-192x192.png">
-    
+
+    <!-- Type: Noto Serif (display) + Noto Sans (body), both with Greek support -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Noto+Serif:wght@600;700;800&display=swap" rel="stylesheet">
+
     <!-- Stylesheets -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
+        :root {
+            --paper: #e9ebe2;
+            --card: #ffffff;
+            --ink: #17211d;
+            --muted: #5b6a61;
+            --line: #dbe1d6;
+            --pine: #1d5c3f;
+            --pine-deep: #103b2a;
+            --pine-tint: #e6efe7;
+            --sand: #f3efe3;
+            --low: #b3362b;
+            --med: #a86a14;
+            --high: #7a6a00;
+            --ok: #1e7a4c;
+            --r-lg: 20px;
+            --r-md: 16px;
+            --r-sm: 12px;
+            --shadow: 0 1px 2px rgba(16, 59, 42, 0.08), 0 12px 32px rgba(16, 59, 42, 0.10);
+            --font-body: 'Noto Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+            --font-display: 'Noto Serif', Georgia, 'Times New Roman', serif;
+        }
+        html { scroll-behavior: smooth; }
         body {
-            background: linear-gradient(135deg, #e8edf5 0%, #d5dce8 100%);
-            min-height: 100vh;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background:
+                radial-gradient(1100px 480px at 15% -8%, #f5f6f0 0%, rgba(245, 246, 240, 0) 60%),
+                var(--paper);
+            min-height: 100dvh;
+            font-family: var(--font-body);
+            color: var(--ink);
+            -webkit-font-smoothing: antialiased;
         }
-        
-        .main-container {
-            background: #fff;
-            border-radius: 12px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.06);
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            opacity: 0.05;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.6'/%3E%3C/svg%3E");
         }
-        
-        .header {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-            color: white;
-            border-radius: 12px 12px 0 0;
-            padding: 1.25rem 1.5rem;
-            text-align: center;
+        .page { max-width: 1160px; margin: 0 auto; padding: 20px 20px 48px; }
+        .skip-link {
+            position: absolute; left: 12px; top: -48px; z-index: 50;
+            background: var(--pine-deep); color: #fff; padding: 8px 14px; border-radius: 8px;
+            transition: top 0.2s;
         }
-        .header h1 { font-size: 1.4rem; margin: 0; }
-        .header p { font-size: 0.9rem; margin: 0.25rem 0 0; opacity: 0.85; }
-        
-        .analysis-card {
-            background: #f8f9fa;
-            border-radius: 10px;
-            border-left: 4px solid #007bff;
-            margin-top: 1rem;
-            transition: border-color 0.3s;
+        .skip-link:focus { top: 12px; color: #fff; }
+        :focus-visible { outline: 3px solid rgba(29, 92, 63, 0.5); outline-offset: 2px; }
+        .masthead {
+            background: var(--pine-deep);
+            color: #f2f5ef;
+            border-radius: var(--r-lg);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            position: relative;
         }
-        .analysis-card.card-grade-low { border-left-color: #dc3545; }
-        .analysis-card.card-grade-medium { border-left-color: #fd7e14; }
-        .analysis-card.card-grade-high { border-left-color: #ffc107; }
-        .analysis-card.card-grade-excellent { border-left-color: #28a745; }
-        
-        .loading { display: none; }
-        
-        .error {
-            background: #f8d7da;
-            border-left-color: #dc3545;
+        .masthead::after {
+            content: "";
+            position: absolute; inset: 0;
+            pointer-events: none; opacity: 0.08;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.7'/%3E%3C/svg%3E");
         }
-        
+        .mast-top {
+            display: flex; align-items: center; justify-content: space-between; gap: 16px;
+            padding: 18px 26px 0;
+            position: relative; z-index: 1;
+        }
+        .brand { display: flex; align-items: center; gap: 12px; }
+        .brand-mark {
+            display: inline-flex; align-items: center; justify-content: center;
+            width: 44px; height: 44px; border-radius: 13px;
+            background: #f2f5ef;
+            font-family: var(--font-display);
+            font-size: 1.5rem; font-weight: 800; color: var(--pine-deep);
+        }
+        .brand-mark .check { color: var(--pine); font-size: 0.75rem; margin-left: 1px; }
+        .brand-name { font-weight: 700; letter-spacing: 0.01em; }
+        .brand-sub { font-size: 0.8rem; color: #c9d4c9; font-weight: 500; }
+        .site-nav { display: flex; gap: 6px; }
+        .site-nav a {
+            color: #e7ede6; text-decoration: none; font-size: 0.88rem; font-weight: 600;
+            padding: 8px 14px; border-radius: 999px; transition: background 0.22s;
+        }
+        .site-nav a:hover { background: rgba(255, 255, 255, 0.14); color: #fff; }
+        .site-nav a[aria-current="page"] { background: rgba(255, 255, 255, 0.18); color: #fff; }
+        .mast-body {
+            display: grid; grid-template-columns: 1.5fr 1fr; gap: 28px; align-items: end;
+            padding: 26px 26px 30px;
+            position: relative; z-index: 1;
+        }
+        .mast-over { font-size: 0.85rem; color: #c9d4c9; font-weight: 600; margin-bottom: 10px; }
+        .mast-body h1 {
+            font-family: var(--font-display);
+            font-size: clamp(1.7rem, 3.4vw, 2.6rem);
+            line-height: 1.12; letter-spacing: -0.02em; font-weight: 800;
+            margin: 0 0 12px; text-wrap: balance; max-width: 22ch;
+        }
+        .mast-lede { color: #d6ded4; font-size: 1rem; line-height: 1.65; margin: 0; max-width: 56ch; }
+        .mast-meta { display: flex; flex-direction: column; gap: 10px; }
+        .meta-row {
+            display: flex; align-items: center; gap: 10px;
+            background: rgba(255, 255, 255, 0.09);
+            border-radius: var(--r-sm);
+            padding: 10px 14px; font-size: 0.88rem; font-weight: 500;
+        }
+        .meta-row i { color: #9fd3ae; width: 18px; text-align: center; }
+        .layout {
+            display: grid; grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr);
+            gap: 22px; margin-top: 22px; align-items: start;
+        }
+        .panel {
+            background: var(--card);
+            border-radius: var(--r-md);
+            box-shadow: var(--shadow);
+            padding: 26px;
+        }
+        .panel h2 {
+            font-family: var(--font-display);
+            font-size: 1.3rem; letter-spacing: -0.01em; font-weight: 700;
+            margin: 0 0 6px;
+        }
+        .panel .sub { color: var(--muted); font-size: 0.92rem; line-height: 1.6; margin: 0 0 18px; max-width: 62ch; }
+        .steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
+        .steps li {
+            display: grid; grid-template-columns: 52px 1fr; gap: 14px; align-items: start;
+            padding: 12px 6px; border-bottom: 1px solid var(--line);
+        }
+        .steps li:last-child { border-bottom: none; }
+        .step-n {
+            font-family: var(--font-display); font-weight: 800; font-size: 1.4rem;
+            color: var(--pine); line-height: 1; padding-top: 2px;
+            font-variant-numeric: tabular-nums;
+        }
+        .steps p { margin: 2px 0 0; font-size: 0.9rem; color: var(--muted); line-height: 1.6; }
+        .steps strong { color: var(--ink); font-weight: 600; }
+        .rail { display: grid; gap: 22px; }
+        .note-sand { background: var(--sand); }
+        .note-sand h2 { font-size: 1.1rem; }
+        .note-sand ul { margin: 0; padding-left: 1.15rem; color: #4c4433; font-size: 0.88rem; line-height: 1.7; }
+        .note-sand li { margin-bottom: 4px; }
+        .why-grid {
+            display: grid; grid-template-columns: 1.25fr 1fr 1fr; gap: 14px;
+            margin-top: 22px;
+        }
+        .why-item { background: var(--card); border-radius: var(--r-md); box-shadow: var(--shadow); padding: 20px; }
+        .why-item:first-child { background: var(--pine-tint); }
+        .why-item h3 { font-size: 0.98rem; font-weight: 600; margin: 0 0 6px; }
+        .why-item h3 i { color: var(--pine); margin-right: 6px; }
+        .why-item p { margin: 0; font-size: 0.87rem; color: var(--muted); line-height: 1.6; }
+        .feature-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 22px; margin-top: 6px; }
+        .feature-item { padding: 9px 0; font-size: 0.9rem; border-bottom: 1px solid var(--line); line-height: 1.55; }
+        .feature-item i { color: var(--pine); margin-right: 8px; }
         .btn-analyze {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            background: var(--pine);
             border: none;
-            border-radius: 8px;
-            padding: 10px 24px;
+            border-radius: var(--r-sm);
+            padding: 12px 24px;
             font-weight: 600;
             font-size: 0.95rem;
-            transition: all 0.2s;
+            color: #fff;
+            transition: background 0.22s, transform 0.12s, box-shadow 0.22s;
+            width: 100%;
         }
-        .btn-analyze:hover {
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-        }
-        
+        .btn-analyze:hover { background: #175539; color: #fff; transform: translateY(-1px); box-shadow: 0 8px 20px rgba(16, 59, 42, 0.25); }
+        .btn-analyze:active { transform: translateY(1px) scale(0.98); }
         .form-control, .form-select {
-            border-radius: 8px;
-            border: 1.5px solid #e0e3e8;
+            border-radius: var(--r-sm);
+            border: 1.5px solid var(--line);
             padding: 10px 14px;
             font-size: 0.95rem;
-            transition: all 0.2s;
+            transition: border-color 0.22s, box-shadow 0.22s;
         }
         .form-control:focus, .form-select:focus {
-            border-color: #2a5298;
-            box-shadow: 0 0 0 3px rgba(42,82,152,0.12);
+            border-color: var(--pine);
+            box-shadow: 0 0 0 3px rgba(29, 92, 63, 0.15);
         }
-        
-        .input-group-text {
-            background: #f8f9fa;
-            border: 1.5px solid #e0e3e8;
-            border-radius: 8px 0 0 8px;
+        .form-label { font-weight: 600; font-size: 0.9rem; }
+        .form-error {
+            display: none;
+            background: #fbecea; color: #8f2b22;
+            border-radius: var(--r-sm);
+            padding: 10px 14px; font-size: 0.88rem; font-weight: 500;
+            margin-bottom: 12px;
         }
-        
-        .analysis-text {
-            white-space: pre-wrap;
-            line-height: 1.5;
-            font-size: 0.95rem;
+        .form-error.show { display: block; }
+        .analysis-card {
+            background: var(--card);
+            border-radius: var(--r-md);
+            box-shadow: var(--shadow);
+            margin-top: 18px;
+            border-top: 4px solid var(--pine);
+            transition: border-color 0.3s;
         }
+        .analysis-card.card-grade-low { border-top-color: var(--low); }
+        .analysis-card.card-grade-medium { border-top-color: var(--med); }
+        .analysis-card.card-grade-high { border-top-color: var(--high); }
+        .analysis-card.card-grade-excellent { border-top-color: var(--ok); }
+        .loading { display: none; }
+        .skel { display: grid; gap: 10px; padding: 6px 0 2px; }
+        .skel span {
+            display: block; height: 14px; border-radius: 6px;
+            background: var(--pine-tint);
+            animation: pulse 1.4s ease-in-out infinite;
+        }
+        .skel span:nth-child(1) { width: 55%; height: 18px; }
+        .skel span:nth-child(2) { width: 92%; }
+        .skel span:nth-child(3) { width: 78%; }
+        .skel span:nth-child(4) { width: 64%; }
+        @keyframes pulse { 0%, 100% { opacity: 0.55; } 50% { opacity: 1; } }
+        .analysis-text { white-space: pre-wrap; line-height: 1.65; font-size: 0.95rem; max-width: 68ch; }
         .analysis-text h2 {
-            font-size: 1.1rem;
-            color: #1e3c72;
-            margin: 1rem 0 0.4rem;
-            font-weight: 600;
-            border-bottom: 1px solid #e9ecef;
-            padding-bottom: 0.25rem;
+            font-family: var(--font-display);
+            font-size: 1.15rem; font-weight: 700;
+            color: var(--pine-deep);
+            margin: 1.1rem 0 0.4rem;
+            border-bottom: 1px solid var(--line);
+            padding-bottom: 0.3rem;
         }
-        .analysis-text h3 {
-            font-size: 1rem;
-            color: #495057;
-            margin: 0.8rem 0 0.3rem;
-            font-weight: 600;
-        }
-        .analysis-text h4, .analysis-text h5, .analysis-text h6 {
-            color: #1e3c72;
-            margin: 0.8rem 0 0.3rem;
-            font-weight: 600;
-        }
-        .analysis-text ul, .analysis-text ol {
-            padding-left: 1.3rem;
-            margin-bottom: 0.75rem;
-        }
+        .analysis-text h3 { font-size: 1rem; color: #33413a; margin: 0.9rem 0 0.3rem; font-weight: 600; }
+        .analysis-text h4, .analysis-text h5, .analysis-text h6 { color: var(--pine-deep); margin: 0.9rem 0 0.3rem; font-weight: 600; }
+        .analysis-text ul, .analysis-text ol { padding-left: 1.3rem; margin-bottom: 0.75rem; }
         .analysis-text li { margin-bottom: 0.35rem; }
-        .analysis-text strong { color: #1e3c72; }
-        .analysis-text .grade-low { color: #dc3545; }
-        .analysis-text .grade-medium { color: #fd7e14; }
-        .analysis-text .grade-high { color: #ffc107; }
-        .analysis-text .grade-excellent { color: #28a745; }
+        .analysis-text strong { color: var(--pine-deep); }
+        .analysis-text .grade-low { color: var(--low); font-weight: 700; font-variant-numeric: tabular-nums; }
+        .analysis-text .grade-medium { color: var(--med); font-weight: 700; font-variant-numeric: tabular-nums; }
+        .analysis-text .grade-high { color: var(--high); font-weight: 700; font-variant-numeric: tabular-nums; }
+        .analysis-text .grade-excellent { color: var(--ok); font-weight: 700; font-variant-numeric: tabular-nums; }
         .analysis-text p { margin-bottom: 0.75rem; }
         .analysis-text blockquote {
-            border-left: 3px solid #007bff;
+            border-left: 3px solid var(--pine);
             padding-left: 0.75rem;
             margin: 0.75rem 0;
             font-style: italic;
-            color: #6c757d;
+            color: var(--muted);
         }
-        
-        .info-card {
-            border-radius: 10px;
-            padding: 1rem 1.25rem;
+        .char-count { font-size: 0.8rem; color: var(--muted); margin-top: 4px; font-variant-numeric: tabular-nums; }
+        .site-footer {
+            margin-top: 26px; padding: 20px 6px 0;
+            border-top: 1px solid var(--line);
+            display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap;
+            font-size: 0.82rem; color: var(--muted);
         }
-        .info-card h3 { font-size: 1rem; margin-bottom: 0.5rem; }
-        .info-card p, .info-card li { font-size: 0.9rem; line-height: 1.6; }
-        
-        .feature-item {
-            padding: 5px 0;
-            font-size: 0.9rem;
-            border-bottom: 1px solid #dee2e6;
+        .site-footer nav { display: flex; gap: 16px; }
+        .site-footer a { color: var(--muted); text-decoration: none; font-weight: 500; }
+        .site-footer a:hover { color: var(--pine-deep); text-decoration: underline; }
+        .install-fab {
+            position: fixed; top: 18px; right: 18px; z-index: 40;
+            background: var(--pine); color: #fff; border: none;
+            padding: 9px 16px; border-radius: 999px;
+            font-size: 0.85rem; font-weight: 600; cursor: pointer;
+            box-shadow: 0 8px 20px rgba(16, 59, 42, 0.3);
+            transition: background 0.22s, transform 0.12s;
+            width: auto;
         }
-        
-        @media (max-width: 768px) {
-            .main-container { margin: 0.5rem; border-radius: 10px; }
-            .header { padding: 1rem; border-radius: 10px 10px 0 0; }
-            .header h1 { font-size: 1.2rem; }
-            .btn-analyze { width: 100%; }
+        .install-fab:hover { background: #175539; }
+        .install-fab:active { transform: scale(0.98); }
+        @media (max-width: 960px) {
+            .layout { grid-template-columns: 1fr; }
+            .mast-body { grid-template-columns: 1fr; }
+            .why-grid { grid-template-columns: 1fr; }
+            .feature-cols { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 640px) {
+            .page { padding: 12px 12px 36px; }
+            .panel { padding: 20px 18px; }
+            .mast-top { padding: 14px 18px 0; flex-wrap: wrap; }
+            .mast-body { padding: 20px 18px 24px; }
+            .site-nav a { padding: 8px 10px; font-size: 0.82rem; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            *, *::before, *::after { animation: none !important; transition: none !important; }
         }
     </style>
 </head>
 <body>
-    <div class="container-fluid py-3">
-        <div class="row justify-content-center">
-            <div class="col-12 col-lg-7">
-                <div class="main-container">
-                    <div class="header">
-                        <h1><i class="fas fa-newspaper me-3"></i>ΕΠΑΠ Εληνική Πλατφόρμα Ανάλυσης Παραπληροφόρισης</h1>
-                        <p class="mb-0">Ελέγξτε αν ένα άρθρο περιέχει στοιχεία προπαγάνδας</p>
+    <a class="skip-link" href="#tool">Μετάβαση στο εργαλείο ανάλυσης</a>
+    <div class="page">
+        <header class="masthead">
+            <div class="mast-top">
+                <div class="brand">
+                    <span class="brand-mark" aria-hidden="true">Ε<span class="check">✓</span></span>
+                    <span>
+                        <span class="brand-name">ΕΠΑΠ</span><br>
+                        <span class="brand-sub">Εληνική Πλατφόρμα Ανάλυσης Παραπληροφόρισης</span>
+                    </span>
+                </div>
+                <nav class="site-nav" aria-label="Κύρια πλοήγηση">
+                    <a href="/" aria-current="page">Αρχική</a>
+                    <a href="/about">Σχετικά</a>
+                    <a href="/privacy">Απόρρητο</a>
+                </nav>
+            </div>
+            <div class="mast-body">
+                <div>
+                    <p class="mast-over">Έλεγχος αξιοπιστίας ειδήσεων με τεχνητή νοημοσύνη</p>
+                    <h1>Ελέγξτε αν ένα άρθρο περιέχει στοιχεία προπαγάνδας</h1>
+                    <p class="mast-lede">Επικολλήστε κείμενο ή εισάγετε URL. Η ανάλυση καλύπτει συναισθηματική χειραγώγηση, προκατάληψη, διαχωρισμό γεγονότων από γνώμες και αξιοπιστία πηγής, με βαθμολογία 1–100.</p>
+                </div>
+                <div class="mast-meta" aria-label="Βασικά στοιχεία">
+                    <div class="meta-row"><i class="fas fa-robot" aria-hidden="true"></i><span>Ανάλυση με Mistral AI, στα ελληνικά</span></div>
+                    <div class="meta-row"><i class="fas fa-gauge-high" aria-hidden="true"></i><span>Βαθμολογία αξιοπιστίας 1–100</span></div>
+                    <div class="meta-row"><i class="fas fa-link" aria-hidden="true"></i><span>Κείμενο ή αυτόματη εξαγωγή από URL</span></div>
+                </div>
+            </div>
+        </header>
+
+        <div class="layout">
+            <main id="tool">
+                <section class="panel" aria-labelledby="tool-title">
+                    <h2 id="tool-title">Ανάλυση άρθρου</h2>
+                    <p class="sub">Συμπληρώστε τα παρακάτω και πατήστε «Ανάλυση άρθρου». Η απάντηση εμφανίζεται ακριβώς από κάτω.</p>
+                    <div class="form-error" id="formError" role="alert"></div>
+                    <form id="analysisForm" novalidate>
+                        <div class="mb-3">
+                            <label for="inputType" class="form-label">
+                                <i class="fas fa-edit me-1" aria-hidden="true"></i>Τρόπος εισαγωγής
+                            </label>
+                            <select class="form-select" id="inputType" onchange="toggleInputType()">
+                                <option value="text">Κείμενο άρθρου</option>
+                                <option value="url" selected>URL άρθρου</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3" id="textInput" style="display: none;">
+                            <label for="articleText" class="form-label">
+                                <i class="fas fa-file-text me-1" aria-hidden="true"></i>Κείμενο άρθρου
+                            </label>
+                            <textarea class="form-control" id="articleText" rows="6"
+                                placeholder="Επικολλήστε εδώ το κείμενο του άρθρου..."
+                                maxlength="10000" oninput="updateCharCount()"></textarea>
+                            <div class="char-count"><span id="charCount">0</span> / 10.000 χαρακτήρες</div>
+                        </div>
+
+                        <div class="mb-3" id="urlInput">
+                            <label for="articleUrl" class="form-label">
+                                <i class="fas fa-link me-1" aria-hidden="true"></i>URL άρθρου
+                            </label>
+                            <input type="url" class="form-control" id="articleUrl"
+                                placeholder="https://example.com/article" inputmode="url">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="source" class="form-label">
+                                <i class="fas fa-building me-1" aria-hidden="true"></i>Πηγή (προαιρετικό)
+                            </label>
+                            <input type="text" class="form-control" id="source"
+                                placeholder="π.χ. ΕΡΤ, ΣΚΑΪ, ANT1" autocomplete="off">
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-analyze">
+                            <i class="fas fa-search me-1" aria-hidden="true"></i>Ανάλυση άρθρου
+                        </button>
+                    </form>
+
+                    <div class="loading py-3" id="loading" role="status" aria-live="polite">
+                        <p class="mb-2" style="font-size: 0.9rem; font-weight: 600;">Ανάλυση σε εξέλιξη…</p>
+                        <div class="skel" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
                     </div>
-                    
-                    <div class="p-3">
-                        <div class="info-card mb-3" style="background: #f8f9fa; border-left: 4px solid #2a5298;">
-                            <h3 style="color: #1e3c72;"><i class="fas fa-shield-alt me-2"></i>Τι είναι η Ανάλυση Προπαγάνδας;</h3>
-                            <p style="color: #495057; margin-bottom: 0.5rem;">
-                                Η εφαρμογή μας χρησιμοποιεί τεχνητή νοημοσύνη (Google Gemini) για να αναλύει ελληνικά άρθρα ειδήσεων και να εντοπίζει στοιχεία προπαγάνδας, προκατάληψης και χειραγώγησης.
-                            </p>
-                            <div class="row g-1">
-                                <div class="col-md-6">
-                                    <div class="feature-item"><i class="fas fa-check-circle me-2 text-success"></i><strong>Συναισθηματική Χειραγώγηση:</strong> Εντοπισμός φορτωμένων όρων</div>
-                                    <div class="feature-item"><i class="fas fa-check-circle me-2 text-success"></i><strong>Προκατάληψη:</strong> Αναγνώριση πολιτικών κλίσεων</div>
-                                    <div class="feature-item"><i class="fas fa-check-circle me-2 text-success"></i><strong>Γεγονότα vs Γνώμες:</strong> Διαχωρισμός απόψεων</div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="feature-item"><i class="fas fa-check-circle me-2 text-success"></i><strong>Αξιοπιστία Πηγής:</strong> Αξιολόγηση διαφάνειας</div>
-                                    <div class="feature-item"><i class="fas fa-check-circle me-2 text-success"></i><strong>Λογικές Πλάνες:</strong> Εντοπισμός σφαλμάτων</div>
-                                    <div class="feature-item"><i class="fas fa-check-circle me-2 text-success"></i><strong>Βαθμολόγηση:</strong> Αξιολόγηση 1-100</div>
-                                </div>
-                            </div>
-                            <div class="alert alert-info py-2 px-3 mt-2 mb-0" style="border-radius: 6px; font-size: 0.9rem;">
-                                <i class="fas fa-lightbulb me-1"></i>
-                                <strong>Πώς λειτουργεί:</strong> Επικολλήστε κείμενο ή εισάγετε URL και η AI αναλύει σε δευτερόλεπτα.
-                            </div>
-                        </div>
-                        
-                        
-                        <form id="analysisForm">
-                            <div class="mb-2">
-                                <label for="inputType" class="form-label fw-semibold" style="font-size: 0.9rem;">
-                                    <i class="fas fa-edit me-1"></i>Τρόπος Εισαγωγής
-                                </label>
-                                <select class="form-select" id="inputType" onchange="toggleInputType()">
-                                    <option value="text">Κείμενο άρθρου</option>
-                                    <option value="url" selected>URL άρθρου</option>
-                                </select>
-                            </div>
-                            
-                            <div class="mb-2" id="textInput" style="display: none;">
-                                <label for="articleText" class="form-label fw-semibold" style="font-size: 0.9rem;">
-                                    <i class="fas fa-file-text me-1"></i>Κείμενο Άρθρου
-                                </label>
-                                <textarea class="form-control" id="articleText" rows="5"
-                                    placeholder="Επικολλήστε εδώ το κείμενο του άρθρου..."
-                                    maxlength="10000" oninput="updateCharCount()"></textarea>
-                                <div class="form-text" style="font-size: 0.8rem;">
-                                    <span id="charCount">0</span> / 10,000 χαρακτήρες
-                                </div>
-                            </div>
-                            
-                            <div class="mb-2" id="urlInput">
-                                <label for="articleUrl" class="form-label fw-semibold" style="font-size: 0.9rem;">
-                                    <i class="fas fa-link me-1"></i>URL Άρθρου
-                                </label>
-                                <div class="input-group">
-                                    <span class="input-group-text">
-                                        <i class="fas fa-globe"></i>
-                                    </span>
-                                    <input type="url" class="form-control" id="articleUrl"
-                                        placeholder="https://example.com/article">
-                                </div>
-                            </div>
-                            
-                            <div class="mb-2">
-                                <label for="source" class="form-label fw-semibold" style="font-size: 0.9rem;">
-                                    <i class="fas fa-building me-1"></i>Πηγή (προαιρετικό)
-                                </label>
-                                <input type="text" class="form-control" id="source"
-                                    placeholder="π.χ. ΕΡΤ, ΣΚΑΪ, ANT1">
-                            </div>
-                            
-                            <button type="submit" class="btn btn-primary btn-analyze w-100">
-                                <i class="fas fa-search me-1"></i>Ανάλυση Άρθρου
+
+                    <div class="analysis-card p-3 p-md-4" id="result" style="display: none;" aria-live="polite">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <h3 class="mb-0" style="font-size: 1.05rem;"><i class="fas fa-chart-line me-1" aria-hidden="true"></i>Αποτελέσματα</h3>
+                            <button type="button" class="btn btn-outline-secondary btn-sm" onclick="copyAnalysis(this)" style="font-size: 0.8rem;">
+                                <i class="fas fa-copy me-1" aria-hidden="true"></i>Αντιγραφή
                             </button>
-                        </form>
-                        
-                        <div class="loading text-center py-3" id="loading">
-                            <div class="spinner-border text-primary spinner-border-sm" role="status">
-                                <span class="visually-hidden">Φόρτωση...</span>
-                            </div>
-                            <p class="mt-1 mb-0" style="font-size: 0.9rem;">Ανάλυση σε εξέλιξη...</p>
                         </div>
-                        
-                        <div class="analysis-card p-3" id="result" style="display: none;">
-                            <div class="d-flex justify-content-between align-items-center mb-2">
-                                <h5 class="mb-0"><i class="fas fa-chart-line me-1"></i>Αποτελέσματα</h5>
-                                <button class="btn btn-outline-secondary btn-sm" onclick="copyAnalysis()" style="font-size: 0.8rem;">
-                                    <i class="fas fa-copy me-1"></i>Αντιγραφή
-                                </button>
-                            </div>
-                            <div class="analysis-text" id="analysisText"></div>
-                            <div class="mt-2 pt-2 border-top">
-                                <small class="text-muted" style="font-size: 0.8rem;">
-                                    <i class="fas fa-info-circle me-1"></i>
-                                    Μήκος: <span id="textLength">0</span> χαρακ. |
-                                    Πηγή: <span id="sourceName">Άγνωστη</span>
-                                </small>
-                            </div>
-                        </div>
-                        
-                        <div class="info-card mb-3" style="background: #fffbe6; border-left: 4px solid #f59e0b;">
-                            <h3 style="color: #92400e;"><i class="fas fa-question-circle me-1"></i>Γιατί να το χρησιμοποιήσετε;</h3>
-                            <p style="color: #92400e; font-size: 0.9rem; margin-bottom: 0.5rem;">
-                                Οι τεχνικές προπαγάνδας μπορεί να είναι λεπτές και δύσκολο να εντοπιστούν χωρίς εξειδικευμένα εργαλεία.
-                            </p>
-                            <div class="row g-2">
-                                <div class="col-md-4">
-                                    <div class="p-2" style="background: #fff; border-radius: 8px;">
-                                        <h6 style="color: #92400e; font-size: 0.85rem;"><i class="fas fa-brain me-1"></i>Βασισμένο σε AI</h6>
-                                        <p style="color: #666; font-size: 0.85rem; margin: 0;">Χρησιμοποιεί το Google Gemini για σε βάθος ανάλυση.</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="p-2" style="background: #fff; border-radius: 8px;">
-                                        <h6 style="color: #92400e; font-size: 0.85rem;"><i class="fas fa-shield-halved me-1"></i>Αντικειμενική Ανάλυση</h6>
-                                        <p style="color: #666; font-size: 0.85rem; margin: 0;">Χωρίς πολιτικές προκαταλήψεις.</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="p-2" style="background: #fff; border-radius: 8px;">
-                                        <h6 style="color: #92400e; font-size: 0.85rem;"><i class="fas fa-graduation-cap me-1"></i>Εκπαιδευτικό</h6>
-                                        <p style="color: #666; font-size: 0.85rem; margin: 0;">Μάθετε να αναγνωρίζετε τεχνικές προπαγάνδας.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Bottom Ad Unit -->
-                        <div class="text-center my-2">
-                            <ins class="adsbygoogle"
-                                 style="display:block"
-                                 data-ad-client="ca-pub-9549967181261078"
-                                 data-ad-slot="5866895841"
-                                 data-ad-format="auto"
-                                 data-full-width-responsive="true"></ins>
-                            <script>
-                                 (adsbygoogle = window.adsbygoogle || []).push({});
-                            </script>
-                        </div>
-                        
-                        <div class="text-center py-2" style="border-top: 1px solid #e9ecef;">
-                            <small class="text-muted">
-                                <i class="fas fa-info-circle me-1"></i>
-                                Η εφαρμογή παρέχει αναλυτικές πληροφορίες αλλά δεν αντικαθιστά την κριτική σκέψη.
+                        <div class="analysis-text" id="analysisText"></div>
+                        <div class="mt-2 pt-2 border-top">
+                            <small class="text-muted" style="font-size: 0.8rem;">
+                                <i class="fas fa-info-circle me-1" aria-hidden="true"></i>
+                                Μήκος: <span id="textLength">0</span> χαρακ. |
+                                Πηγή: <span id="sourceName">Άγνωστη</span>
                             </small>
                         </div>
                     </div>
+                </section>
+
+                <section class="panel mt-4" aria-labelledby="what-title">
+                    <h2 id="what-title">Τι ελέγχει η ανάλυση</h2>
+                    <p class="sub">Έξι άξονες, μία βαθμολογία. Η εφαρμογή χρησιμοποιεί τεχνητή νοημοσύνη για να εντοπίσει τεχνικές προπαγάνδας και χειραγώγησης.</p>
+                    <div class="feature-cols">
+                        <div class="feature-item"><i class="fas fa-check-circle" aria-hidden="true"></i><strong>Συναισθηματική χειραγώγηση:</strong> εντοπισμός φορτωμένων όρων</div>
+                        <div class="feature-item"><i class="fas fa-check-circle" aria-hidden="true"></i><strong>Αξιοπιστία πηγής:</strong> αξιολόγηση διαφάνειας</div>
+                        <div class="feature-item"><i class="fas fa-check-circle" aria-hidden="true"></i><strong>Προκατάληψη:</strong> αναγνώριση πολιτικών κλίσεων</div>
+                        <div class="feature-item"><i class="fas fa-check-circle" aria-hidden="true"></i><strong>Λογικές πλάνες:</strong> εντοπισμός σφαλμάτων</div>
+                        <div class="feature-item"><i class="fas fa-check-circle" aria-hidden="true"></i><strong>Γεγονότα vs γνώμες:</strong> διαχωρισμός απόψεων</div>
+                        <div class="feature-item"><i class="fas fa-check-circle" aria-hidden="true"></i><strong>Βαθμολόγηση:</strong> αξιολόγηση 1–100</div>
+                    </div>
+                </section>
+
+                <div class="why-grid">
+                    <div class="why-item">
+                        <h3><i class="fas fa-brain" aria-hidden="true"></i>Βασισμένο σε AI</h3>
+                        <p>Σε βάθος ανάλυση κειμένου με γλωσσικό μοντέλο, με δομημένη αναφορά και παραδείγματα.</p>
+                    </div>
+                    <div class="why-item">
+                        <h3><i class="fas fa-scale-balanced" aria-hidden="true"></i>Αντικειμενική μέθοδος</h3>
+                        <p>Σταθερά κριτήρια για κάθε άρθρο, χωρίς κομματικές προκαταλήψεις.</p>
+                    </div>
+                    <div class="why-item">
+                        <h3><i class="fas fa-graduation-cap" aria-hidden="true"></i>Εκπαιδευτικό</h3>
+                        <p>Μάθετε να αναγνωρίζετε μόνοι σας τις τεχνικές προπαγάνδας.</p>
+                    </div>
                 </div>
-            </div>
+            </main>
+
+            <aside class="rail" aria-label="Οδηγίες και προειδοποίηση">
+                <section class="panel" aria-labelledby="how-title">
+                    <h2 id="how-title">Οδηγίες χρήσης</h2>
+                    <p class="sub">Τέσσερα βήματα, λίγα δευτερόλεπτα.</p>
+                    <ol class="steps">
+                        <li><span class="step-n" aria-hidden="true">01</span><div><strong>Επιλέξτε τρόπο εισαγωγής</strong><p>Επικολλήστε κείμενο ή εισάγετε URL για αυτόματη εξαγωγή.</p></div></li>
+                        <li><span class="step-n" aria-hidden="true">02</span><div><strong>Προσθέστε την πηγή</strong><p>Προαιρετικά: το όνομα του μέσου για καλύτερη ανάλυση.</p></div></li>
+                        <li><span class="step-n" aria-hidden="true">03</span><div><strong>Πατήστε «Ανάλυση άρθρου»</strong><p>Η AI εξετάζει το κείμενο σε δευτερόλεπτα.</p></div></li>
+                        <li><span class="step-n" aria-hidden="true">04</span><div><strong>Διαβάστε την αναφορά</strong><p>Λεπτομερής ανάλυση με παραδείγματα και συστάσεις.</p></div></li>
+                    </ol>
+                </section>
+
+                <section class="panel note-sand" aria-labelledby="warn-title">
+                    <h2 id="warn-title"><i class="fas fa-triangle-exclamation me-1" aria-hidden="true"></i>Προειδοποίηση</h2>
+                    <p class="sub" style="margin-bottom: 10px;">Η παραπληροφόρηση είναι σοβαρό πρόβλημα. Τα άρθρα μπορεί να περιέχουν:</p>
+                    <ul>
+                        <li><strong>Μερικές πληροφορίες:</strong> επιλεκτική παρουσίαση γεγονότων</li>
+                        <li><strong>Συναισθηματική χειραγώγηση:</strong> φορτωμένες λέξεις αντί λογικής</li>
+                        <li><strong>Απομόνωση πληροφοριών:</strong> μόνο μία πλευρά του θέματος</li>
+                        <li><strong>Λογικά σφάλματα:</strong> λογικές πλάνες για πειθώ</li>
+                    </ul>
+                </section>
+            </aside>
         </div>
+
+        <div class="text-center my-4" id="bottomAdContainer">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-9549967181261078"
+                 data-ad-slot="5866895841"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+
+        <footer class="site-footer">
+            <span><i class="fas fa-info-circle me-1" aria-hidden="true"></i>Η εφαρμογή παρέχει αναλυτικές πληροφορίες αλλά δεν αντικαθιστά την κριτική σκέψη.</span>
+            <nav aria-label="Νομικά">
+                <a href="/about">Σχετικά</a>
+                <a href="/privacy">Πολιτική απορρήτου</a>
+            </nav>
+        </footer>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/marked@9.1.6/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked@12.0.0/marked.min.js"></script>
     <script>
-        // PWA Installation and Service Worker
+        if (typeof marked === 'undefined') {
+            console.error('Marked library failed to load from CDN');
+        }
+    </script>
+    <script>
         let deferredPrompt;
         let isInstalled = false;
 
-        // Check if app is already installed
         if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true) {
             isInstalled = true;
-            console.log('App is running in standalone mode');
         }
 
-        // Register Service Worker
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', async () => {
                 try {
-                    console.log('Attempting to register service worker...');
-                    const registration = await navigator.serviceWorker.register('/static/sw.js', {
-                        scope: '/'
-                    });
-                    console.log('SW registered successfully: ', registration);
-                    
-                    // Check for updates
+                    const registration = await navigator.serviceWorker.register('/static/sw.js', { scope: '/' });
                     registration.addEventListener('updatefound', () => {
-                        console.log('Service worker update found');
                         const newWorker = registration.installing;
                         newWorker.addEventListener('statechange', () => {
                             if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-                                console.log('New service worker installed, reloading page');
                                 window.location.reload();
                             }
                         });
@@ -409,29 +563,24 @@
                     console.error('SW registration failed: ', error);
                 }
             });
-        } else {
-            console.log('Service Worker not supported');
         }
 
-        // Handle PWA install prompt
         window.addEventListener('beforeinstallprompt', (e) => {
             e.preventDefault();
             deferredPrompt = e;
             showInstallButton();
         });
 
-        // Handle app installed
-        window.addEventListener('appinstalled', (evt) => {
-            console.log('App was installed');
+        window.addEventListener('appinstalled', () => {
             isInstalled = true;
             hideInstallButton();
         });
 
         function showInstallButton() {
-            if (!isInstalled && deferredPrompt) {
+            if (!isInstalled && deferredPrompt && !document.querySelector('.install-fab')) {
                 const installButton = document.createElement('button');
-                installButton.className = 'btn btn-success btn-sm position-fixed';
-                installButton.style.cssText = 'top: 20px; right: 20px; z-index: 1000;';
+                installButton.className = 'install-fab';
+                installButton.type = 'button';
                 installButton.innerHTML = '<i class="fas fa-download me-1"></i>Εγκατάσταση';
                 installButton.onclick = installApp;
                 document.body.appendChild(installButton);
@@ -439,50 +588,36 @@
         }
 
         function hideInstallButton() {
-            const installButton = document.querySelector('button[onclick="installApp()"]');
-            if (installButton) {
-                installButton.remove();
-            }
+            const installButton = document.querySelector('.install-fab');
+            if (installButton) installButton.remove();
         }
 
         function installApp() {
             if (deferredPrompt) {
                 deferredPrompt.prompt();
                 deferredPrompt.userChoice.then((choiceResult) => {
-                    if (choiceResult.outcome === 'accepted') {
-                        console.log('User accepted the install prompt');
-                    } else {
-                        console.log('User dismissed the install prompt');
-                    }
+                    if (choiceResult.outcome === 'accepted') console.log('User accepted the install prompt');
+                    else console.log('User dismissed the install prompt');
                     deferredPrompt = null;
                 });
             }
         }
 
-        // Handle URL parameters for deep linking
         function handleUrlParameters() {
             const urlParams = new URLSearchParams(window.location.search);
             const url = urlParams.get('url');
             const title = urlParams.get('title');
-            const text = urlParams.get('text');
-
             if (url) {
-                // Pre-fill URL input
                 document.getElementById('inputType').value = 'url';
                 document.getElementById('articleUrl').value = url;
                 toggleInputType();
-                
-                // Auto-analyze if it's a news URL
                 if (isNewsUrl(url)) {
                     setTimeout(() => {
                         document.getElementById('analysisForm').dispatchEvent(new Event('submit'));
                     }, 1000);
                 }
             }
-
-            if (title) {
-                document.getElementById('source').value = title;
-            }
+            if (title) document.getElementById('source').value = title;
         }
 
         function isNewsUrl(url) {
@@ -494,24 +629,20 @@
             return newsDomains.some(domain => url.includes(domain));
         }
 
-        // Handle share target
         if ('serviceWorker' in navigator && 'navigator' in window) {
             navigator.serviceWorker.addEventListener('message', (event) => {
                 if (event.data && event.data.type === 'SHARE_TARGET') {
-                    const { title, text, url } = event.data.data;
+                    const { title, url } = event.data.data;
                     if (url) {
                         document.getElementById('inputType').value = 'url';
                         document.getElementById('articleUrl').value = url;
                         toggleInputType();
                     }
-                    if (title) {
-                        document.getElementById('source').value = title;
-                    }
+                    if (title) document.getElementById('source').value = title;
                 }
             });
         }
 
-        // Check for shared data from service worker
         async function checkSharedData() {
             if ('caches' in window) {
                 try {
@@ -524,10 +655,7 @@
                             document.getElementById('articleUrl').value = data.url;
                             toggleInputType();
                         }
-                        if (data.title) {
-                            document.getElementById('source').value = data.title;
-                        }
-                        // Clear the shared data after using it
+                        if (data.title) document.getElementById('source').value = data.title;
                         await cache.delete('shared-data');
                     }
                 } catch (error) {
@@ -536,18 +664,29 @@
             }
         }
 
-        // Initialize on page load
         document.addEventListener('DOMContentLoaded', () => {
             handleUrlParameters();
             checkSharedData();
         });
     </script>
     <script>
+        function showFormError(message) {
+            const box = document.getElementById('formError');
+            box.textContent = message;
+            box.classList.add('show');
+            box.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        function clearFormError() {
+            const box = document.getElementById('formError');
+            box.textContent = '';
+            box.classList.remove('show');
+        }
+
         function toggleInputType() {
             const inputType = document.getElementById('inputType').value;
             const textInput = document.getElementById('textInput');
             const urlInput = document.getElementById('urlInput');
-            
             if (inputType === 'text') {
                 textInput.style.display = 'block';
                 urlInput.style.display = 'none';
@@ -556,23 +695,17 @@
                 urlInput.style.display = 'block';
             }
         }
-        
+
         function updateCharCount() {
             const textarea = document.getElementById('articleText');
             const charCount = document.getElementById('charCount');
             const count = textarea.value.length;
             charCount.textContent = count;
-            
-            // Change color based on count
-            if (count < 50) {
-                charCount.style.color = '#dc3545';
-            } else if (count > 9000) {
-                charCount.style.color = '#ffc107';
-            } else {
-                charCount.style.color = '#28a745';
-            }
+            if (count < 50) charCount.style.color = '#b3362b';
+            else if (count > 9000) charCount.style.color = '#a86a14';
+            else charCount.style.color = '#1e7a4c';
         }
-        
+
         function colorizeGrade() {
             const el = document.getElementById('analysisText');
             if (!el) return;
@@ -593,17 +726,15 @@
                 card.className = card.className.replace(/card-grade-\S+/g, '').trim() + ' ' + gradeCls;
             }
         }
-        
-        function copyAnalysis() {
+
+        function copyAnalysis(btn) {
             const analysisText = document.getElementById('analysisText').textContent;
             navigator.clipboard.writeText(analysisText).then(() => {
-                // Show success message
-                const button = event.target.closest('button');
+                const button = btn && btn.closest ? btn : document.querySelector('#result button');
                 const originalText = button.innerHTML;
                 button.innerHTML = '<i class="fas fa-check me-1"></i>Αντιγράφηκε!';
                 button.classList.remove('btn-outline-secondary');
                 button.classList.add('btn-success');
-                
                 setTimeout(() => {
                     button.innerHTML = originalText;
                     button.classList.remove('btn-success');
@@ -611,67 +742,71 @@
                 }, 2000);
             }).catch(err => {
                 console.error('Failed to copy: ', err);
-                alert('Αποτυχία αντιγραφής');
+                showFormError('Αποτυχία αντιγραφής');
             });
         }
-        
+
         document.getElementById('analysisForm').addEventListener('submit', async function(e) {
             e.preventDefault();
-            
+            clearFormError();
+
             const inputType = document.getElementById('inputType').value;
             const text = document.getElementById('articleText').value;
             const url = document.getElementById('articleUrl').value;
             const source = document.getElementById('source').value;
-            
+
             if (inputType === 'text' && !text.trim()) {
-                alert('Παρακαλώ εισάγετε κείμενο άρθρου');
+                showFormError('Παρακαλώ εισάγετε κείμενο άρθρου');
                 return;
             }
-            
             if (inputType === 'text' && text.length < 50) {
-                alert('Το κείμενο πρέπει να έχει τουλάχιστον 50 χαρακτήρες');
+                showFormError('Το κείμενο πρέπει να έχει τουλάχιστον 50 χαρακτήρες');
                 return;
             }
-            
             if (inputType === 'url' && !url.trim()) {
-                alert('Παρακαλώ εισάγετε URL άρθρου');
+                showFormError('Παρακαλώ εισάγετε URL άρθρου');
                 return;
             }
-            
-            // Show loading
+
             document.getElementById('loading').style.display = 'block';
             document.getElementById('result').style.display = 'none';
-            
+
             try {
                 const response = await fetch('/analyze', {
                     method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
+                    headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
                         text: inputType === 'text' ? text : '',
                         url: inputType === 'url' ? url : '',
                         source: source
                     })
                 });
-                
+
                 const data = await response.json();
-                
-                if (data.error) {
-                    throw new Error(data.error);
+                if (data.error) throw new Error(data.error);
+
+                let htmlContent;
+                try {
+                    if (typeof marked !== 'undefined' && typeof marked.parse === 'function') {
+                        htmlContent = marked.parse(data.analysis);
+                    } else if (typeof marked !== 'undefined' && typeof marked === 'function') {
+                        htmlContent = marked(data.analysis);
+                    } else {
+                        htmlContent = '<pre>' + data.analysis + '</pre>';
+                    }
+                } catch (err) {
+                    console.error('Error parsing markdown:', err);
+                    htmlContent = '<pre>' + data.analysis + '</pre>';
                 }
-                
-                document.getElementById('analysisText').innerHTML = marked.parse(data.analysis);
+                document.getElementById('analysisText').innerHTML = htmlContent;
                 colorizeGrade();
                 document.getElementById('textLength').textContent = data.text_length || 0;
                 document.getElementById('sourceName').textContent = data.source || 'Άγνωστη';
                 document.getElementById('result').style.display = 'block';
-                document.getElementById('result').className = 'analysis-card p-4';
-                
+                document.getElementById('result').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
             } catch (error) {
                 document.getElementById('analysisText').innerHTML = '<div class="alert alert-danger">Σφάλμα: ' + error.message + '</div>';
                 document.getElementById('result').style.display = 'block';
-                document.getElementById('result').className = 'analysis-card p-4 error';
             } finally {
                 document.getElementById('loading').style.display = 'none';
             }
@@ -679,3 +814,4 @@
     </script>
 </body>
 </html>
+
